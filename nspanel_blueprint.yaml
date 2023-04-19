@@ -7415,7 +7415,7 @@ action:
           - service: "{{ command_text_printf }}"
             data:
               component: home.value01_state
-              message: '{{ trigger.event.data.new_state.state |round(1) }}{{ trigger.event.data.new_state.attributes.unit_of_measurement }}'
+              message: '{{ trigger.event.data.new_state.state |round(1) if is_number(trigger.event.data.new_state.state) else trigger.event.data.new_state.state }}{{ trigger.event.data.new_state.attributes.unit_of_measurement }}'
 
       ##### HOME PAGE - value 02 #####
       - conditions:
@@ -7437,7 +7437,7 @@ action:
           - service: "{{ command_text_printf }}"
             data:
               component: home.value02_state
-              message: '{{ trigger.event.data.new_state.state |round(1) }}{{ trigger.event.data.new_state.attributes.unit_of_measurement }}'
+              message: '{{ trigger.event.data.new_state.state |round(1) if is_number(trigger.event.data.new_state.state) else trigger.event.data.new_state.state }}{{ trigger.event.data.new_state.attributes.unit_of_measurement }}'
 
       ##### HOME PAGE - value 03 #####
       - conditions:
@@ -7459,7 +7459,7 @@ action:
           - service: "{{ command_text_printf }}"
             data:
               component: home.value03_state
-              message: '{{ trigger.event.data.new_state.state |round(1) }}{{ trigger.event.data.new_state.attributes.unit_of_measurement }}'
+              message: '{{ trigger.event.data.new_state.state |round(1) if is_number(trigger.event.data.new_state.state) else trigger.event.data.new_state.state }}{{ trigger.event.data.new_state.attributes.unit_of_measurement }}'
 
       ##### CHIP RELAY 01 - statusbar 01 #####
       - conditions:
